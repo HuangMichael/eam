@@ -2,19 +2,16 @@
     <section class="chart-container">
         <el-row>
             <el-col :span="12">
-                <div id="chartColumn" style="width:100%; height:400px;"></div>
+                <div id="chartColumn" style="width:100%; height:300px;"></div>
             </el-col>
             <el-col :span="12">
-                <div id="chartBar" style="width:100%; height:400px;"></div>
+                <div id="chartBar" style="width:100%; height:300px;"></div>
             </el-col>
             <el-col :span="12">
-                <div id="chartLine" style="width:100%; height:400px;"></div>
+                <div id="chartLine" style="width:100%; height:300px;"></div>
             </el-col>
             <el-col :span="12">
-                <div id="chartPie" style="width:100%; height:400px;"></div>
-            </el-col>
-            <el-col :span="24">
-                <a href="http://echarts.baidu.com/examples.html" target="_blank" style="float: right;">more>></a>
+                <div id="chartPie" style="width:100%; height:300px;"></div>
             </el-col>
         </el-row>
     </section>
