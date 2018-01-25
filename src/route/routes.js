@@ -3,12 +3,11 @@ import NotFound from '../modules/index/views/404.vue'
 import Home from '../modules/index/views/Home.vue'
 import Table from '../modules/index/views/nav1/Table.vue'
 import Info from '../modules/index/views/nav1/Info.vue'
-import Form from '../modules/index/views/nav1/Form.vue'
-import User from '../modules/index/views/nav1/user.vue'
 import Role from '../modules/index/views/role/list.vue'
-import Page5 from '../modules/index/views/nav2/Page5.vue'
+import User from '../modules/index/views/nav1/user.vue'
 import ECharts from '../modules/index/views/charts/echarts.vue'
 
+import Person from '../modules/index/views/person/list.vue'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
@@ -45,7 +44,7 @@ const routers = new VueRouter({
             name: '系统管理',
             iconCls: 'fa fa-bar-chart',
             children: [
-                {path: '/person', component: ECharts, name: '人员信息'},
+                {path: '/person', component: Person, name: '人员信息'},
                 {path: '/user', component: User, name: '用户信息'},
                 {path: '/role', component: Role, name: '角色信息'},
                 {path: '/auth', component: User, name: '角色授权'},
