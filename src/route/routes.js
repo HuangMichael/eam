@@ -5,7 +5,7 @@ import Table from '../modules/index/views/nav1/Table.vue'
 import Info from '../modules/index/views/nav1/Info.vue'
 import Form from '../modules/index/views/nav1/Form.vue'
 import User from '../modules/index/views/nav1/user.vue'
-import TelManage from '../modules/index/views/nav2/TelManage.vue'
+import Role from '../modules/index/views/role/list.vue'
 import Page5 from '../modules/index/views/nav2/Page5.vue'
 import ECharts from '../modules/index/views/charts/echarts.vue'
 
@@ -40,14 +40,14 @@ const routers = new VueRouter({
             ]
         },
         {
-            path: '/sysManage',
+            path: '/',
             component: Home,
             name: '系统管理',
             iconCls: 'fa fa-bar-chart',
             children: [
                 {path: '/person', component: ECharts, name: '人员信息'},
                 {path: '/user', component: User, name: '用户信息'},
-                {path: '/role', component: User, name: '角色信息'},
+                {path: '/role', component: Role, name: '角色信息'},
                 {path: '/auth', component: User, name: '角色授权'},
                 {path: '/resource', component: User, name: '资源信息'}
             ]
