@@ -5,7 +5,6 @@ import Table from '../modules/index/views/nav1/Table.vue'
 import Info from '../modules/index/views/nav1/Info.vue'
 import Form from '../modules/index/views/nav1/Form.vue'
 import User from '../modules/index/views/nav1/user.vue'
-import Page4 from '../modules/index/views/nav2/Page4.vue'
 import TelManage from '../modules/index/views/nav2/TelManage.vue'
 import Page5 from '../modules/index/views/nav2/Page5.vue'
 import Echarts from '../modules/index/views/charts/echarts.vue'
@@ -47,9 +46,8 @@ const routers = new VueRouter({
             name: '采购管理',
             iconCls: 'fa fa-id-card-o',
             children: [
-                {path: '/page4', component: TelManage, name: '联系我们'},
-                {path: '/page5', component: Page5, name: '公园广场'},
-                {path: '/page5', component: Page4, name: '公厕'}
+                {path: '/page4', component: TelManage, name: '采购计划'},
+                {path: '/page5', component: Page5, name: '采购申请'}
             ]
         },
         {
