@@ -1,14 +1,13 @@
 /**
- * Created by huangbin on 2018/1/25.
+ * Created by Administrator on 2018/1/25.
  */
-
 import util from 'common/js/util'
 import {getAllRoles, removeUser, batchRemoveUser, editUser, addUser} from 'api/api';
 export default {
     data() {
         return {
             filters: {
-                name: ''
+                roleName: ''
             },
             dataList: [],
             total: 0,
@@ -52,10 +51,6 @@ export default {
         }
     },
     methods: {
-        //性别显示转换
-        formatSex: function (row, column) {
-            return row.sex == 1 ? '男' : row.sex == 0 ? '女' : '未知';
-        },
         handleCurrentChange(val) {
             this.page = val;
             this.getDataList();
@@ -64,11 +59,11 @@ export default {
         getDataList() {
             let para = {
                 page: this.page,
-                name: this.filters.name
+                roleName: this.filters.roleName
             };
             this.listLoading = true;
-            //NProgress.start();
-            this.getAllRoles(para).then((res) => {
+            getAllRoles(para).then((res) => {
+                console.log("res.data--------------" + JSON.stringify(res.data));
                 this.total = res.data.total;
                 this.dataList = res.data.dataList;
                 this.listLoading = false;
@@ -189,4 +184,3 @@ export default {
         this.getDataList();
     }
 }
-

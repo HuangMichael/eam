@@ -1,11 +1,13 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import {LoginUsers, Users} from './data/user';
+import {Roles} from './data/role';
 import {Infos} from './data/infos';
 import {Telephone} from './data/telephone';
 let _Users = Users;
 let _Infos = Infos;
 let _Telephone = Telephone;
+let _Roles = Roles;
 
 export default {
     /**
@@ -197,6 +199,43 @@ export default {
                 }, 500);
             });
         });
+
+
+        //查询所有人员信息
+
+        //获取用户列表
+        mock.onGet('/role/list').reply(config => {
+            let {roleName} = config.params;
+            let mockRoles = _Roles.filter(role => {
+                if (role && role.roleName.indexOf(roleName) == -1) return false;
+                return true;
+            });
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve([200, {
+                        dataList: mockRoles
+                    }]);
+                }, 1000);
+            });
+        });
+
+        //
+        // //获取用户列表
+        // mock.onGet('/role/list').reply(config => {
+        //     let {roleName} = config.params;
+        //     let mockRoles = _Roles.filter(role => {
+        //         if (role && role.roleName.indexOf(roleName) == -1) return false;
+        //         return true;
+        //     });
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve([200, {
+        //                 dataList: mockRoles
+        //             }]);
+        //         }, 1000);
+        //     });
+        // });
+
 
     }
 };
