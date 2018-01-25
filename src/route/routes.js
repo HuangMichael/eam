@@ -30,7 +30,7 @@ const routers = new VueRouter({
         },
 
         {
-            path: '/statistics',
+            path: '/',
             component: Home,
             name: '统计分析',
             iconCls: 'fa fa-bar-chart',
