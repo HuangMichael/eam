@@ -7,6 +7,7 @@ import Role from '../modules/index/views/role/index.vue'
 import User from '../modules/index/views/nav1/user.vue'
 import ECharts from '../modules/index/views/charts/echarts.vue'
 import Person from '../modules/index/views/person/index.vue'
+import MapView from '../modules/index/views/map/map.vue'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
@@ -34,7 +35,8 @@ const routers = new VueRouter({
             iconCls: 'fa fa-bar-chart',
             children: [
                 {path: '/portal', component: ECharts, name: '我的门户'},
-                {path: '/unitsStat', component: ECharts, name: '外委单位统计'}
+                {path: '/unitsStat', component: ECharts, name: '外委单位统计'},
+                {path: '/mapView', component: MapView, name: '高德地图'}
             ]
         },
         {
