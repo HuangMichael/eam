@@ -6,8 +6,7 @@ import Info from '../modules/index/views/nav1/Info.vue'
 import Role from '../modules/index/views/role/list.vue'
 import User from '../modules/index/views/nav1/user.vue'
 import ECharts from '../modules/index/views/charts/echarts.vue'
-
-import Person from '../modules/index/views/person/list.vue'
+import Person from '../modules/index/views/person/index.vue'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
@@ -50,10 +49,7 @@ const routers = new VueRouter({
                 {path: '/auth', component: User, name: '角色授权'},
                 {path: '/resource', component: User, name: '资源信息'}
             ]
-        }
-        ,
-
-
+        },
         {
             path: '/eqManage',
             component: Home,
