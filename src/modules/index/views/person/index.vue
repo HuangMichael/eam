@@ -107,8 +107,8 @@
 </template>
 
 <script>
-    import appJs from './index';
-    export default appJs;
+    import personJs from './index';
+    export default personJs;
 </script>
 
 <style scoped>

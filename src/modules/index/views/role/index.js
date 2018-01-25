@@ -1,7 +1,7 @@
 /**
- * Created by Administrator on 2018/1/25.
+ * Created by huangbin on 2018/1/25.
  */
-import util from 'common/js/util'
+import util from 'common/js/util';
 import {getAllRoles, removeUser, batchRemoveUser, editUser, addUser} from 'api/api';
 export default {
     data() {
@@ -59,7 +59,7 @@ export default {
         getDataList() {
             let para = {
                 page: this.page,
-                roleName: this.filters.roleName
+                name: this.filters.roleName
             };
             this.listLoading = true;
             getAllRoles(para).then((res) => {

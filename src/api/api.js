@@ -54,7 +54,7 @@ export const getTelephone = params => {
 
 //获取人员列表
 export const getAllPerson = params => {
-    return axios.get(`${base}/person/list`, {params: params});
+    return axios.get(`${base}/person/list`);
 };
 
 

@@ -18,15 +18,15 @@
         <!--列表-->
         <el-table :data="dataList" highlight-current-row v-loading="listLoading" @selection-change="selsChange"
                   style="width: 100%;">
-            <el-table-column type="selection" min-width="5%">
+            <el-table-column type="selection" min-width="20%">
             </el-table-column>
-            <el-table-column type="index" min-width="10%">
+            <el-table-column type="index" min-width="15%">
             </el-table-column>
-            <el-table-column prop="roleName" label="角色名称" min-width="20%" sortable>
+            <el-table-column prop="roleName" label="角色名称" min-width="25%" sortable>
             </el-table-column>
-            <el-table-column prop="roleDesc" label="角色描述" min-width="40%" sortable>
+            <el-table-column prop="roleDesc" label="角色描述" min-width="25%" sortable>
             </el-table-column>
-            <el-table-column label="操作" min-width="25%">
+            <el-table-column label="操作" min-width="15%">
                 <template scope="scope">
                     <el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
                     <el-button type="danger" size="small" @click="handleDel(scope.$index, scope.row)">删除</el-button>
@@ -45,23 +45,11 @@
         <!--编辑界面-->
         <el-dialog title="编辑" v-model="editFormVisible" :close-on-click-modal="false">
             <el-form :model="editForm" label-width="80px" :rules="editFormRules" ref="editForm">
-                <el-form-item label="姓名" prop="name">
-                    <el-input v-model="editForm.name" auto-complete="off"></el-input>
+                <el-form-item label="角色名称" prop="roleName">
+                    <el-input v-model="editForm.roleName " auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="性别">
-                    <el-radio-group v-model="editForm.sex">
-                        <el-radio class="radio" :label="1">男</el-radio>
-                        <el-radio class="radio" :label="0">女</el-radio>
-                    </el-radio-group>
-                </el-form-item>
-                <el-form-item label="年龄">
-                    <el-input-number v-model="editForm.age" :min="0" :max="200"></el-input-number>
-                </el-form-item>
-                <el-form-item label="生日">
-                    <el-date-picker type="date" placeholder="选择日期" v-model="editForm.birth"></el-date-picker>
-                </el-form-item>
-                <el-form-item label="地址">
-                    <el-input type="textarea" v-model="editForm.addr"></el-input>
+                <el-form-item label="角色描述">
+                    <el-input type="textarea" v-model="editForm.roleDesc"></el-input>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -73,23 +61,11 @@
         <!--新增界面-->
         <el-dialog title="新增" v-model="addFormVisible" :close-on-click-modal="false">
             <el-form :model="addForm" label-width="80px" :rules="addFormRules" ref="addForm">
-                <el-form-item label="姓名" prop="name">
-                    <el-input v-model="addForm.name" auto-complete="off"></el-input>
+                <el-form-item label="角色名称" prop="roleName">
+                    <el-input v-model="addForm.roleName" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="性别">
-                    <el-radio-group v-model="addForm.sex">
-                        <el-radio class="radio" :label="1">男</el-radio>
-                        <el-radio class="radio" :label="0">女</el-radio>
-                    </el-radio-group>
-                </el-form-item>
-                <el-form-item label="年龄">
-                    <el-input-number v-model="addForm.age" :min="0" :max="200"></el-input-number>
-                </el-form-item>
-                <el-form-item label="生日">
-                    <el-date-picker type="date" placeholder="选择日期" v-model="addForm.birth"></el-date-picker>
-                </el-form-item>
-                <el-form-item label="地址">
-                    <el-input type="textarea" v-model="addForm.addr"></el-input>
+                <el-form-item label="角色描述">
+                    <el-input type="textarea" v-model="addForm.roleDesc"></el-input>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -101,8 +77,8 @@
 </template>
 
 <script>
-    import appJs from './index.js';
-    export default appJs;
+    import roleJs from './index';
+    export default roleJs;
 </script>
 
 <style scoped>
