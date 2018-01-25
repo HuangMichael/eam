@@ -4,10 +4,10 @@
         <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
             <el-form :inline="true" :model="filters">
                 <el-form-item>
-                    <el-input v-model="filters.name" placeholder="姓名"></el-input>
+                    <el-input v-model="filters.personName" placeholder="姓名"></el-input>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" v-on:click="getUsers">查询</el-button>
+                    <el-button type="primary" v-on:click="getDataList">查询</el-button>
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="handleAdd">新增</el-button>
@@ -22,15 +22,15 @@
             </el-table-column>
             <el-table-column type="index" width="60">
             </el-table-column>
-            <el-table-column prop="name" label="姓名" width="120" sortable>
+            <el-table-column prop="personNo" label="人员编号" width="120" sortable>
             </el-table-column>
-            <el-table-column prop="sex" label="性别" width="100" :formatter="formatSex" sortable>
+            <el-table-column prop="personName" label="姓名" width="100" sortable>
             </el-table-column>
-            <el-table-column prop="age" label="年龄" width="100" sortable>
+            <el-table-column prop="telephone" label="联系电话" width="100" sortable>
             </el-table-column>
-            <el-table-column prop="birth" label="生日" width="120" sortable>
+            <el-table-column prop="email" label="电子邮件" width="120" sortable>
             </el-table-column>
-            <el-table-column prop="addr" label="地址" min-width="120" sortable>
+            <el-table-column prop="status" label="状态" min-width="120" sortable>
             </el-table-column>
             <el-table-column label="操作" width="150">
                 <template scope="scope">
@@ -107,9 +107,8 @@
 </template>
 
 <script>
-    import appJs from './index'
+    import appJs from './index';
     export default appJs;
-
 </script>
 
 <style scoped>

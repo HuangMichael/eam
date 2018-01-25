@@ -12,7 +12,7 @@ export default {
             dataList: [],
             total: 0,
             page: 1,
-            pageSize: 16,
+            // pageSize: 16,
             listLoading: false,
             sels: [],//列表选中列
             editFormVisible: false,//编辑界面是否显示

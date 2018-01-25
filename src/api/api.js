@@ -51,3 +51,10 @@ export const getInfoList = params => {
 export const getTelephone = params => {
     return axios.get(`${base}/telephone/list`, {params: params});
 };
+
+//获取人员列表
+export const getAllPerson = params => {
+    return axios.get(`${base}/person/list`, {params: params});
+};
+
+

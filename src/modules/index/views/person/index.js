@@ -3,12 +3,12 @@
  */
 
 import util from 'common/js/util'
-import {getAllRoles, removeUser, batchRemoveUser, editUser, addUser} from 'api/api';
+import {getAllPerson, removeUser, batchRemoveUser, editUser, addUser} from 'api/api';
 export default {
     data() {
         return {
             filters: {
-                name: ''
+                personName: ''
             },
             dataList: [],
             total: 0,
@@ -64,13 +64,14 @@ export default {
         getDataList() {
             let para = {
                 page: this.page,
-                name: this.filters.name
+                personName: this.filters.personName
             };
             this.listLoading = true;
             //NProgress.start();
-            this.getAllRoles(para).then((res) => {
+            getAllPerson(para).then((res) => {
                 this.total = res.data.total;
                 this.dataList = res.data.dataList;
+                console.log("this.dataList-------------" + JSON.stringify(this.dataList));
                 this.listLoading = false;
             });
         },

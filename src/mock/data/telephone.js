@@ -2,7 +2,7 @@ import Mock from 'mockjs';
 
 const Telephone = [];
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 100; i++) {
 	Telephone.push(Mock.mock({
 		id: Mock.Random.guid(),
 		//name: Mock.Random.cname(),
