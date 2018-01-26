@@ -19,6 +19,7 @@
 
 <script>
     import echarts from 'echarts'
+    import utils from '../../../../common/js/util.js'
 
     export default {
         data() {
@@ -38,7 +39,8 @@
             this.chartPie = echarts.init(document.getElementById('chartPie'));
 
             this.chartColumn.setOption({
-                title: { text: 'Column Chart' },
+                color: utils.getEchartColors(),
+                title: {text: 'Column Chart'},
                 tooltip: {},
                 xAxis: {
                     data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
@@ -94,6 +96,7 @@
             });
 
             this.chartLine.setOption({
+                color: utils.getEchartColors(),
                 title: {
                     text: 'Line Chart'
                 },
@@ -140,6 +143,7 @@
             });
 
             this.chartPie.setOption({
+                color: utils.getEchartColors(),
                 title: {
                     text: 'Pie Chart',
                     subtext: '纯属虚构',
@@ -161,11 +165,11 @@
                         radius: '55%',
                         center: ['50%', '60%'],
                         data: [
-                            { value: 335, name: '直接访问' },
-                            { value: 310, name: '邮件营销' },
-                            { value: 234, name: '联盟广告' },
-                            { value: 135, name: '视频广告' },
-                            { value: 1548, name: '搜索引擎' }
+                            {value: 335, name: '直接访问'},
+                            {value: 310, name: '邮件营销'},
+                            {value: 234, name: '联盟广告'},
+                            {value: 135, name: '视频广告'},
+                            {value: 1548, name: '搜索引擎'}
                         ],
                         itemStyle: {
                             emphasis: {
@@ -187,13 +191,5 @@
     .chart-container {
         width: 100%;
         float: left;
-    }
-    /*.chart div {
-        height: 400px;
-        float: left;
-    }*/
-    
-    .el-col {
-        padding: 30px 20px;
     }
 </style>
