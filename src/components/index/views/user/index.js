@@ -12,6 +12,31 @@ export default {
             filters: {
                 name: ''
             },
+            //定义查询条件
+
+            queryCols: [{
+                colName: "userName",
+                placeHolder: "用户名称"
+            }, {
+                colName: "telephone",
+                placeHolder: "电话号码"
+            }],
+            operations: [{
+                label: "查询",
+                method: "getUsers()",
+                btnType: "primary",
+                icon: "el-icon-circle-plus"
+            }, {
+                label: "新增记录",
+                method: "handleAdd()",
+                btnType: "primary",
+                icon: "el-icon-search"
+            }, {
+                label: "发起流程",
+                method: "startFlow()",
+                btnType: "primary",
+                icon: "el-icon-caret-right"
+            }],
             users: [],
             total: 0,
             page: 1,
@@ -54,6 +79,9 @@ export default {
         }
     },
     methods: {
+        applyMethod(m){
+            eval("this." + m);
+        },
         //性别显示转换
         formatSex: function (row, column) {
             return row.sex == 1 ? '男' : row.sex == 0 ? '女' : '未知';
@@ -69,12 +97,10 @@ export default {
                 name: this.filters.name
             };
             this.listLoading = true;
-            //NProgress.start();
             getUserListPage(para).then((res) => {
                 this.total = res.data.total;
                 this.users = res.data.users;
                 this.listLoading = false;
-                //NProgress.done();
             });
         },
         //删除

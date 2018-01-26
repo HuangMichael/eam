@@ -22,6 +22,9 @@ export const getUserList2 = params => {
 };
 
 export const getUserListPage = params => {
+
+
+    console.log("api----params-----------"+JSON.stringify(params));
     return axios.get(`${base}/user/listpage`, {params: params});
 };
 
