@@ -3,17 +3,17 @@
         <el-row>
             <el-col :span="12">
                 <figure>
-                    <div id="chartPie" style="width:100%; height:280px;"></div>
+                    <div id="chartPie" class="chart"></div>
                 </figure>
             </el-col>
             <el-col :span="12">
                 <figure>
-                    <div id="chartColumn" style="width:100%; height:280px;"></div>
+                    <div id="chartColumn" class="chart"></div>
                 </figure>
             </el-col>
             <el-col :span="24">
                 <figure>
-                    <div id="chartBar" style="width:100%; height:280px;"></div>
+                    <div id="chartBar" class="chart"></div>
                 </figure>
             </el-col>
         </el-row>
@@ -25,7 +25,7 @@
     // built-in theme
     import 'echarts/theme/dark'
     import china from './china.json'
-    import theme from './theme.json'
+    //    import theme from './theme.json'
     import utils from '../../../../common/js/util.js'
     export default {
         data() {
@@ -54,6 +54,14 @@
                     splitLine: {
                         show: false
                     }
+                },
+
+                legend: {
+                    show: true,
+                    orient: "horizontal",
+                    x: "center",
+                    y: "bottom",
+                    data: ["报修数量", "完工数量"]
                 },
 
                 yAxis: {
@@ -85,6 +93,13 @@
                     splitLine: {
                         show: false
                     }
+                },
+                legend: {
+                    show: true,
+                    orient: "horizontal",
+                    x: "center",
+                    y: "bottom",
+                    data: ["待分配", "维修中", "完工", "暂停", "取消"]
                 },
                 yAxis: {
                     splitLine: {
@@ -126,9 +141,10 @@
                     formatter: "{a} <br/>{b} : {c} ({d}%)"
                 },
                 legend: {
-                    show: false,
-                    orient: 'vertical',
-                    left: 'left',
+                    show: true,
+                    orient: "horizontal",
+                    x: "center",
+                    y: "bottom",
                     data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
                 },
                 series: [
@@ -168,11 +184,16 @@
 
     figure {
         /*display: inline-block;*/
-        margin: 1em auto;
+        margin: 1em;
         border: 1px solid rgba(0, 0, 0, .1);
         border-radius: 8px;
         box-shadow: 0 0 45px rgba(0, 0, 0, .2);
         padding: 1em 1em
+    }
+
+    .chart {
+        width: 100%;
+        height: 280px;
     }
 
 </style>

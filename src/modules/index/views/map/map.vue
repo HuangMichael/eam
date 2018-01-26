@@ -2,9 +2,9 @@
     <section class="chart-container">
         <el-row>
             <el-col :span="24">
-                <div id="mapContainer" style="width:100%; height:720px">
-
-                </div>
+                <figure>
+                    <div id="mapContainer" style="width:100%; height:680px"></div>
+                </figure>
             </el-col>
         </el-row>
     </section>
@@ -36,4 +36,14 @@
         width: 100%;
         float: left;
     }
+
+    figure {
+        /*display: inline-block;*/
+        margin: 1em auto;
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 8px;
+        box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+        padding: 1em 1em
+    }
+
 </style>

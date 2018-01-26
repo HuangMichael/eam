@@ -90,7 +90,7 @@
     export default {
         data() {
             return {
-                sysName: '企业设备资产管理系统',
+                sysName: '企业资产管理(EAM)',
                 collapsed: false,
                 sysUserName: '',
                 sysUserAvatar: '',
