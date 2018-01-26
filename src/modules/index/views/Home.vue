@@ -67,7 +67,7 @@
 <section class="content-container">
     <div class="grid-content bg-purple-light">
         <el-col :span="24" class="breadcrumb-container">
-            <strong class="title">{{$route.name}}</strong>
+
             <!-- <strong class="title">{{$route.path}}</strong> -->
             <el-breadcrumb separator="/" class="breadcrumb-inner">
                 <el-breadcrumb-item v-for="item in $route.matched">
@@ -271,7 +271,8 @@
                         color: #475669;
                     }
                     .breadcrumb-inner {
-                        float: right;
+                        float: left;
+                        padding-left: 15px
                     }
                 }
                 .content-wrapper {

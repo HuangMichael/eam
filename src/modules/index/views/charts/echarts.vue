@@ -1,6 +1,13 @@
 <template>
     <section class="chart-container">
         <el-row>
+            <!--<el-col :span="24">-->
+                <!--<section>-->
+                    <!--<div id="titlePanel" class="titlePanel">-->
+                        <!--<strong class="title">{{$route.name}}</strong>-->
+                    <!--</div>-->
+                <!--</section>-->
+            <!--</el-col>-->
             <el-col :span="12">
                 <figure>
                     <div id="chartPie" class="chart"></div>
@@ -194,6 +201,11 @@
     .chart {
         width: 100%;
         height: 280px;
+    }
+
+    .titlePanel {
+        width: 100%;
+        height: 10px;
     }
 
 </style>
