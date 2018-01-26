@@ -17,8 +17,8 @@ var chunks = Object.keys(entries);
 
 const webpackConfig = {
  /* entry: {
-    app: './src/modules/index/main.js',
-    phone: './src/modules/phone/main.js'
+    app: './src/components/index/main.js',
+    phone: './src/components/phone/main.js'
   },*/
   entry:entries,
   output: {
@@ -39,8 +39,8 @@ const webpackConfig = {
       'components': path.resolve(__dirname, '../src/components'),
       'scss_vars': path.resolve(__dirname, '../src/styles/vars.scss'),
       'styles': path.resolve(__dirname, '../src/styles'),
-      'indexPath': path.resolve(__dirname, '../src/modules/index'),
-      'phonePath': path.resolve(__dirname, '../src/modules/phone'),
+      'indexPath': path.resolve(__dirname, '../src/components/index'),
+      'phonePath': path.resolve(__dirname, '../src/components/phone'),
       'vux-components': 'vux/src/components/'
     }
   },
