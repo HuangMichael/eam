@@ -2,16 +2,19 @@
     <section class="chart-container">
         <el-row>
             <el-col :span="12">
-                <div id="chartColumn" style="width:100%; height:300px;"></div>
+                <figure>
+                    <div id="chartPie" style="width:100%; height:280px;"></div>
+                </figure>
             </el-col>
             <el-col :span="12">
-                <div id="chartBar" style="width:100%; height:300px;"></div>
+                <figure>
+                    <div id="chartColumn" style="width:100%; height:280px;"></div>
+                </figure>
             </el-col>
-            <el-col :span="12">
-                <div id="chartLine" style="width:100%; height:300px;"></div>
-            </el-col>
-            <el-col :span="12">
-                <div id="chartPie" style="width:100%; height:300px;"></div>
+            <el-col :span="24">
+                <figure>
+                    <div id="chartBar" style="width:100%; height:280px;"></div>
+                </figure>
             </el-col>
         </el-row>
     </section>
@@ -19,14 +22,16 @@
 
 <script>
     import echarts from 'echarts'
+    // built-in theme
+    import 'echarts/theme/dark'
+    import china from './china.json'
+    import theme from './theme.json'
     import utils from '../../../../common/js/util.js'
-
     export default {
         data() {
             return {
                 chartColumn: null,
                 chartBar: null,
-                chartLine: null,
                 chartPie: null
             }
         },
@@ -35,118 +40,85 @@
             //基于准备好的dom，初始化echarts实例
             this.chartColumn = echarts.init(document.getElementById('chartColumn'));
             this.chartBar = echarts.init(document.getElementById('chartBar'));
-            this.chartLine = echarts.init(document.getElementById('chartLine'));
             this.chartPie = echarts.init(document.getElementById('chartPie'));
 
             this.chartColumn.setOption({
                 color: utils.getEchartColors(),
-                title: {text: 'Column Chart'},
+                title: {
+                    text: '最近三个月报修完成情况',
+                    x: 'center'
+                },
                 tooltip: {},
                 xAxis: {
-                    data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+                    data: ["2017-11", "2017-12", "2018-01"],
+                    splitLine: {
+                        show: false
+                    }
                 },
-                yAxis: {},
+
+                yAxis: {
+                    splitLine: {
+                        show: false
+                    }
+                },
                 series: [{
-                    name: '销量',
+                    name: '报修数量',
                     type: 'bar',
-                    data: [5, 20, 36, 10, 10, 20]
+                    data: [5, 20, 36]
+                }, {
+                    name: '完工数量',
+                    type: 'bar',
+                    data: [15, 40, 26]
                 }]
             });
 
             this.chartBar.setOption({
-                title: {
-                    text: 'Bar Chart',
-                    subtext: '数据来自网络'
-                },
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        type: 'shadow'
-                    }
-                },
-                legend: {
-                    data: ['2011年', '2012年']
-                },
-                grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
-                },
-                xAxis: {
-                    type: 'value',
-                    boundaryGap: [0, 0.01]
-                },
-                yAxis: {
-                    type: 'category',
-                    data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)']
-                },
-                series: [
-                    {
-                        name: '2011年',
-                        type: 'bar',
-                        data: [18203, 23489, 29034, 104970, 131744, 630230]
-                    },
-                    {
-                        name: '2012年',
-                        type: 'bar',
-                        data: [19325, 23438, 31000, 121594, 134141, 681807]
-                    }
-                ]
-            });
-
-            this.chartLine.setOption({
                 color: utils.getEchartColors(),
                 title: {
-                    text: 'Line Chart'
+                    text: '维修单状态按线别统计',
+                    subtext: '2018-01',
+                    x: 'center'
                 },
-                tooltip: {
-                    trigger: 'axis'
-                },
-                legend: {
-                    data: ['邮件营销', '联盟广告', '搜索引擎']
-                },
-                grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
-                },
+                tooltip: {},
                 xAxis: {
-                    type: 'category',
-                    boundaryGap: false,
-                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                    data: ["2号线", "8号线", "10号线", '13号线'],
+                    splitLine: {
+                        show: false
+                    }
                 },
                 yAxis: {
-                    type: 'value'
-                },
-                series: [
-                    {
-                        name: '邮件营销',
-                        type: 'line',
-                        stack: '总量',
-                        data: [120, 132, 101, 134, 90, 230, 210]
-                    },
-                    {
-                        name: '联盟广告',
-                        type: 'line',
-                        stack: '总量',
-                        data: [220, 182, 191, 234, 290, 330, 310]
-                    },
-                    {
-                        name: '搜索引擎',
-                        type: 'line',
-                        stack: '总量',
-                        data: [820, 932, 901, 934, 1290, 1330, 1320]
+                    splitLine: {
+                        show: false
                     }
-                ]
+                },
+                series: [{
+                    name: '待分配',
+                    type: 'bar',
+                    data: [5, 20, 11, 23]
+                }, {
+                    name: '维修中',
+                    type: 'bar',
+                    data: [11, 21, 40, 26]
+                }, {
+                    name: '完工',
+                    type: 'bar',
+                    data: [15, 32, 11, 26]
+                }, {
+                    name: '暂停',
+                    type: 'bar',
+                    data: [15, 40, 33, 22]
+                }, {
+                    name: '取消',
+                    type: 'bar',
+                    data: [5, 30, 26, 11, 22]
+                }]
             });
 
             this.chartPie.setOption({
                 color: utils.getEchartColors(),
                 title: {
-                    text: 'Pie Chart',
-                    subtext: '纯属虚构',
+                    text: '报修按设备类型统计',
+                    subtext: '2018-01',
                     x: 'center'
                 },
                 tooltip: {
@@ -154,6 +126,7 @@
                     formatter: "{a} <br/>{b} : {c} ({d}%)"
                 },
                 legend: {
+                    show: false,
                     orient: 'vertical',
                     left: 'left',
                     data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
@@ -192,4 +165,14 @@
         width: 100%;
         float: left;
     }
+
+    figure {
+        /*display: inline-block;*/
+        margin: 1em auto;
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 8px;
+        box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+        padding: 1em 1em
+    }
+
 </style>

@@ -59,7 +59,7 @@ const routers = new VueRouter({
             iconCls: 'el-icon-message',//图标样式class
             children: [
                 {path: '/equipments', component: Table, name: '设备信息'},
-                {path: '/location', component: Info, name: '位置信息'}
+                {path: '/location', component: Table, name: '位置信息'}
             ]
         },
         {
@@ -92,10 +92,10 @@ const routers = new VueRouter({
             iconCls: 'fa fa-address-card',
             // leaf: true,//只有一个节点
             children: [
-                {path: '/apply', component: User, name: '采购申请'},
-                {path: '/ecApply', component: User, name: '易耗品采购申请'},
-                {path: '/buyApply', component: User, name: '设备新置申请'},
-                {path: '/updateApply', component: User, name: '设备更新申请'}
+                {path: '/apply', component: Table, name: '采购申请'},
+                {path: '/ecApply', component: Table, name: '易耗品采购申请'},
+                {path: '/buyApply', component: Table, name: '设备新置申请'},
+                {path: '/updateApply', component: Table, name: '设备更新申请'}
             ]
         }
     ]

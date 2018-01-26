@@ -2,7 +2,7 @@
     <section class="chart-container">
         <el-row>
             <el-col :span="24">
-                <div id="mapContainer" style="width:100%; height:750px">
+                <div id="mapContainer" style="width:100%; height:720px">
 
                 </div>
             </el-col>
